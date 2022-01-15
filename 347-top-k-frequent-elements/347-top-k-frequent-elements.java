@@ -1,61 +1,24 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        PriorityQueue<Pair> heap=new PriorityQueue<>(k,new PairComparater());
+        if(nums==null)
+            return null;
         
-        HashMap<Integer,Pair> map=new HashMap<>();
-        
-        for(int i=0;i<nums.length;i++){
-            if(!map.containsKey(nums[i])){
-                Pair p=new Pair(nums[i],1);
-                heap.add(p);
-                map.put(nums[i],p);
-                //heap.poll();
-            }
-            else{
-                Pair p=new Pair(nums[i],map.get(nums[i]).freq+1);
-                heap.remove(map.get(nums[i]));
-                heap.add(p);
-                map.put(nums[i],p);
-            }
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int p: nums)
+            map.put(p,map.getOrDefault(p,0)+1);
+        PriorityQueue<Map.Entry<Integer,Integer>> pq = new PriorityQueue<>((a,b)->a.getValue()-b.getValue());
+        for(Map.Entry<Integer,Integer> entry: map.entrySet()) {
+            pq.offer(entry);
+            if(pq.size()>k)
+                pq.poll();
         }
-        System.out.println(heap.size());
-        
-        int[] res=new int[k];
-        //int i=0;
-        // for(Pair element :heap){
-        //     res[i]=element.num;
-        //     i++;
-        //     if(i>=k){
-        //         break;
-        //     }
-        // }
-        
-        for(int i=0;i<k;i++){
-            res[i]=heap.poll().num;
+        int[] res= new int[pq.size()];
+        int i=0;
+        while(!pq.isEmpty()) {
+            res[i]=pq.poll().getKey();
+            i++;
         }
-        
         return res;
-    }
-    
-    class Pair{
-        int num;
-        int freq;
-        public Pair(int num,int freq){
-            this.num=num;
-            this.freq=freq;
-        }
-    }
-    
-    class PairComparater implements Comparator<Pair>{
-        public int compare(Pair a,Pair b){
-             if(a.freq>b.freq){
-                 return -1;
-             }
-            if(a.freq<b.freq){
-                return 1;
-            }
-            
-            return 0;
-        }
+        
     }
 }
