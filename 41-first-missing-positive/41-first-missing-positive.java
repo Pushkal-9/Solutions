@@ -1,19 +1,19 @@
 class Solution {
     public int firstMissingPositive(int[] nums) {
         int n=nums.length;
-        for (int i = 0; i < n; i++) {
-        if (nums[i] <= 0 || nums[i] > n) {
-            nums[i] = n + 1;
+        for (int i = 0; i < nums.length; i++) {
+        if (nums[i] <= 0 || nums[i] > nums.length) {
+            nums[i] = nums.length + 1;
         }
     }
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < nums.length; i++) {
         int num = Math.abs(nums[i]);
-        if (num > n) {
+        if (num > nums.length) {
             continue;
         }
-        num--; // -1 for zero index based array (so the number 1 will be at pos 0)
-        if (nums[num] > 0) { // prevents double negative operations
+        num--;
+        if (nums[num] > 0) { 
             nums[num] = -1 * nums[num];
         }
     }
@@ -23,7 +23,7 @@ class Solution {
                 return i+1;
             }
         }
-        return n+1;
+        return nums.length+1;
         
 //         HashSet<Integer> set=new HashSet<>();
         
