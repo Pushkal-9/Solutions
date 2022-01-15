@@ -12,9 +12,8 @@ class Solution {
         if (num > nums.length) {
             continue;
         }
-        num--;
-        if (nums[num] > 0) { 
-            nums[num] = -1 * nums[num];
+        if (nums[num-1] > 0) { 
+            nums[num-1] = -1 * nums[num-1];
         }
     }
         
@@ -24,26 +23,5 @@ class Solution {
             }
         }
         return nums.length+1;
-        
-//         HashSet<Integer> set=new HashSet<>();
-        
-        
-//         for(int i=0;i<)
-        
-//         for(int i=0;i<nums.length;i++){
-//             if(nums[i]>0){
-//             set.add(nums[i]);}
-//         }
-        
-//         int num=1;
-        
-//         while(num>0){
-//             if(!set.contains(num)){
-//                 break;
-//             }
-//             num++;
-//         }
-        
-//         return num;
     }
 }
