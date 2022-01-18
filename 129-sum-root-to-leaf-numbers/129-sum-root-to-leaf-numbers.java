@@ -14,9 +14,8 @@
  * }
  */
 class Solution {
-    int max=0;
     public int sumNumbers(TreeNode root) {
-        int total=maxPath(root,0,max);
+        int total=maxPath(root,0,0);
         
         return total;
     }
