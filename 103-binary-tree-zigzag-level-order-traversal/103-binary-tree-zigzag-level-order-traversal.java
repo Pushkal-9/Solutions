@@ -42,8 +42,8 @@ class Solution {
         if(l==1){
             list.add(node.val);
         }
-            evenLevelOrder(node.left,l-1,list);
-            evenLevelOrder(node.right,l-1,list);
+        evenLevelOrder(node.left,l-1,list);
+        evenLevelOrder(node.right,l-1,list);
         
     }
     
@@ -54,10 +54,8 @@ class Solution {
         if(l==1){
             list.add(node.val);
         }
-        if(l>1){
-            oddLevelOrder(node.right,l-1,list);
-            oddLevelOrder(node.left,l-1,list);
-        }
+        oddLevelOrder(node.right,l-1,list);
+        oddLevelOrder(node.left,l-1,list);
     }
     
     public int height(TreeNode root){
