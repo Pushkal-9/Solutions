@@ -42,10 +42,9 @@ class Solution {
         if(l==1){
             list.add(node.val);
         }
-        if(l>1){
             evenLevelOrder(node.left,l-1,list);
             evenLevelOrder(node.right,l-1,list);
-        }
+        
     }
     
     public void oddLevelOrder(TreeNode node,int l,List<Integer> list){
