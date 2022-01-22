@@ -32,7 +32,6 @@ class Solution {
             else{
                 Pair p=q.poll();
                 ans[p.row][p.col]=dis;
-                System.out.println(p.row+" "+p.col+" "+dis);
                 
                 
                 int lr=p.row;
