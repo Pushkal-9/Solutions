@@ -35,7 +35,6 @@ class Solution {
         }
         int k=arr.get(mid);
         if(k==target){
-            System.out.println(mid);
             return mid;
         }
         
