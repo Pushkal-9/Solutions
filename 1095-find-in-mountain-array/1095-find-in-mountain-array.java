@@ -29,24 +29,32 @@ class Solution {
     }
     
     public int decSearch(MountainArray arr,int low,int high,int target){
-        int mid=(high-low)/2 +low;
+        int mid=0;
+        while(low<=high){
+        mid=(high-low)/2 +low;
         if(low>high){
             return -1;
         }
         int k=arr.get(mid);
+        
         if(k==target){
             return mid;
         }
         
         else if(k>target){
-            return decSearch(arr,low,mid-1,target);
+            high=mid-1;
         }
-        
-        return decSearch(arr,mid+1,high,target);
+        else{
+            low=mid+1;
+        }
+        }
+        return -1;
     }
     
     public int incSearch(MountainArray arr,int low,int high,int target){
-        int mid=(high-low)/2 +low;
+        int mid=0;
+        while(low<=high){
+        mid=(high-low)/2 +low;
         if(low>high){
             return -1;
         }
@@ -57,10 +65,13 @@ class Solution {
         }
         
         else if(k<target){
-            return incSearch(arr,low,mid-1,target);
+            high=mid-1;
         }
-        
-        return incSearch(arr,mid+1,high,target);
+        else{
+            low=mid+1;
+        }
+        }
+        return -1;
     }
     
     public int peak(MountainArray arr,int low,int high){
