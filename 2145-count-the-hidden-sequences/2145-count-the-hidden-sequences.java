@@ -1,19 +1,22 @@
 class Solution {
     public int numberOfArrays(int[] differences, int lower, int upper) {
         int n=differences.length;
-        int arr[]=new int[n+1];
         int min=0;
         int max=0;
+        int now=0;
+        int prev=0;
         for(int i=1;i<n+1;i++){
-            arr[i]=arr[i-1]+differences[i-1];
+            now=prev+differences[i-1];
             
-            if(min>arr[i]){
-                min=arr[i];
+            if(min>now){
+                min=now;
             }
             
-            if(max<arr[i]){
-                max=arr[i];
+            if(max<now){
+                max=now;
             }
+            
+            prev=now;
         }
         System.out.print(min+" "+max);
         int k=lower-min;
