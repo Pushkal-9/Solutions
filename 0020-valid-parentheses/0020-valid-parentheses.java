@@ -13,20 +13,9 @@ class Solution {
                     return false;
                 }
                 char ch = stack.pop();
-                if((ch=='{' && s.charAt(i)=='}')){
-                                i++;
-
+                if((ch=='{' && s.charAt(i)=='}') || (ch=='[' && s.charAt(i)==']') || (ch=='(' && s.charAt(i)==')')){
+                    i++;
                     continue;                
-                }
-                else if((ch=='[' && s.charAt(i)==']')){
-                                i++;
-
-                    continue;                
-                }
-                else if((ch=='(' && s.charAt(i)==')')){
-                                i++;
-
-                    continue;       
                 }
                 else{ return false;}
             }
