@@ -4,27 +4,25 @@ class Solution {
         
         for(int i=0;i<tokens.length;i++){
             String op = tokens[i];
-            
-                
-                if(op.equals("+")){
-                                    Integer second = stack.pop();
+            if(op.equals("+")){
+                Integer second = stack.pop();
                 Integer first = stack.pop();
-                    stack.push(first+second);
-                }
-                else if (op.equals("-")){
-                                    Integer second = stack.pop();
+                stack.push(first+second);
+            }
+            else if (op.equals("-")){
+                Integer second = stack.pop();
                 Integer first = stack.pop();
-                    stack.push(first-second);
-                }
-                else if(op.equals("*")){
-                                    Integer second = stack.pop();
+                stack.push(first-second);
+            }
+            else if(op.equals("*")){
+                Integer second = stack.pop();
                 Integer first = stack.pop();
-                    stack.push(first*second);
-                }
-                else if(op.equals("/")){
-                                    Integer second = stack.pop();
+                stack.push(first*second);
+            }
+            else if(op.equals("/")){
+                Integer second = stack.pop();
                 Integer first = stack.pop();
-                    stack.push(first/second);
+                stack.push(first/second);
             }
             else{
                 Integer k = Integer.parseInt(op);
