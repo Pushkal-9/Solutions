@@ -12,7 +12,7 @@ class Solution {
             }
         }
         
-        fast=0;
+        slow=0;
         
         while(slow!=fast){
             slow=nums[slow];
