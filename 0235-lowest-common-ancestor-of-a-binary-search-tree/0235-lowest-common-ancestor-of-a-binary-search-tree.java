@@ -10,8 +10,7 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        int min = Integer.MIN_VALUE;
-        int max = Integer.MAX_VALUE;
+
         
         if(root==null){
             return root;
@@ -21,7 +20,7 @@ class Solution {
             return root;
         }
         
-        if(lowestCommonAncestor(root.left,p,q)!=null){
+        if(root.val>p.val && root.val>q.val){
             return lowestCommonAncestor(root.left,p,q);
         }
         
