@@ -22,7 +22,6 @@ class Solution {
         
 
         int p = size-n;
-        System.out.println(p);
         
         if(p==0){
             return head.next;
